@@ -566,7 +566,7 @@ assign int_out = {1'b0, 1'b0, 1'b0, uart0_int, spi_inta_o, mac_int   };
 
 // cpu
 godson_cpu_mid u_cpu(
-    .interrupt_i    (int_out[4:0] ),   //high active
+    .interrupt_i    (~int_out[4:0]),   //low active
     .nmi       (1'b1),
     .coreclock (cpu_clk       ),
     .areset_n  (cpu_resetn    ),   //low active
