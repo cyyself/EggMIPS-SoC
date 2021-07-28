@@ -515,7 +515,7 @@ assign     uart0_ri_i  = UART_RI ;
 //interrupt
 wire [5:0] int_out;
 wire mac_int;
-assign int_out = {1'b0, 1'b0, 1'b0, uart0_int, spi_inta_o, mac_int   };
+assign int_out = {1'b0, 1'b0, 1'b0, spi_inta_o, uart0_int, mac_int   };
 
 // wire [31:0] sp, ra;
 
