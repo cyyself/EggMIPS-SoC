@@ -563,12 +563,13 @@ assign int_out = {1'b0, 1'b0, 1'b0, uart0_int, spi_inta_o, mac_int   };
     
 // );
 
-// cpu
-mycpu_top u_cpu(
-    .ext_int   (int_out       ),   //high active
 
-    .aclk      (cpu_clk       ),
-    .aresetn   (cpu_resetn    ),   //low active
+// cpu
+godson_cpu_mid u_cpu(
+    .interrupt_i    (int_out[4:0] ),   //high active
+
+    .coreclock (cpu_clk       ),
+    .areset_n  (cpu_resetn    ),   //low active
 
     .arid      (cpu_arid      ),
     .araddr    (cpu_araddr    ),
@@ -611,11 +612,14 @@ mycpu_top u_cpu(
     .bvalid    (cpu_bvalid    ),
     .bready    (cpu_bready    ),
 
-    //debug interface
-    .debug_wb_pc      ( ),
-    .debug_wb_rf_wen  ( ),
-    .debug_wb_rf_wnum ( ),
-    .debug_wb_rf_wdata( )
+    .EJTAG_TCK         (1'b0        ),
+    .EJTAG_TDI         (1'b0        ),
+    .EJTAG_TMS         (1'b0        ),
+    .EJTAG_TRST        (1'b0        ),
+    .EJTAG_TDO         (            ),
+    .prrst_to_core     (            ),
+
+    .testmode          (1'b0        )
 );
 //clock sync: from cpu_clk to sys_clk
 axi_clock_converter  u_axi_clock_sync(
