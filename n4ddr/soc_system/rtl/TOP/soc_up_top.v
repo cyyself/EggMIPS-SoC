@@ -993,6 +993,7 @@ spi_flash_ctrl SPI
 .inta_o         (spi_inta_o        )
 );
 
+/*
 //confreg
 confreg CONFREG(
 .aclk              (sys_clk            ),       
@@ -1047,6 +1048,7 @@ confreg CONFREG(
 .btn_key_row       (4'b0 ),
 .btn_step          (2'b0 )
 );
+*/
 
 ethernet_controller ethernet_controller(
     .ref_clk(mac_ref_clk), //for mii_to_rmii module, 50MHz
