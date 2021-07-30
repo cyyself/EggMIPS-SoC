@@ -993,7 +993,6 @@ spi_flash_ctrl SPI
 .inta_o         (spi_inta_o        )
 );
 
-/*
 //confreg
 confreg CONFREG(
 .aclk              (sys_clk            ),       
@@ -1037,18 +1036,19 @@ confreg CONFREG(
 .rvalid            (conf_s_rvalid      ),
 
 .ram_random_mask   (            ),
-
+/*
 .led               (led         ),
 .led_rg0           (led_rg0     ),
 .led_rg1           (led_rg1     ),
 .num_csn           (num_csn     ),
 .num_a_g           (num_a_g     ),
+*/
 .switch            (switch      ),
 // .btn_key_col       (btn_key_col ),
 .btn_key_row       (4'b0 ),
 .btn_step          (2'b0 )
 );
-*/
+
 
 ethernet_controller ethernet_controller(
     .ref_clk(mac_ref_clk), //for mii_to_rmii module, 50MHz
